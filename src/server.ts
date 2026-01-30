@@ -5,6 +5,7 @@ import connectDB from "./config/database";
 import productRoutes from "./routes/productRoutes";
 import categoryRoutes from "./routes/categoryRoutes";
 import brandRoutes from "./routes/brandRoutes";
+import reviewRoutes from "./routes/reviewRoutes";
 
 // Load environment variables
 dotenv.config();
@@ -31,6 +32,7 @@ app.get("/", (req: Request, res: Response) => {
       topSelling: "/api/products/top-selling",
       categories: "/api/categories",
       brands: "/api/brands",
+      reviews: "/api/reviews",
     },
   });
 });
@@ -38,6 +40,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/brands", brandRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 // 404 Handler
 app.use((req: Request, res: Response) => {
