@@ -5,7 +5,7 @@ import Review from "../models/Review";
 // Get new arrivals (10 most recent products)
 export const getNewArrivals = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   try {
     const products = await Product.find()
@@ -31,7 +31,7 @@ export const getNewArrivals = async (
 // Get top selling products (10 most purchased)
 export const getTopSelling = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   try {
     const products = await Product.find()
@@ -57,7 +57,7 @@ export const getTopSelling = async (
 // Get all products with optional filtering
 export const getAllProducts = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   try {
     const { category, type, brand, minPrice, maxPrice, minRating } = req.query;
@@ -96,7 +96,7 @@ export const getAllProducts = async (
 // Get single product by ID
 export const getProductById = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   try {
     const product = await Product.findById(req.params.id)
@@ -135,7 +135,7 @@ export const getProductById = async (
 // Get products by category
 export const getProductsByCategory = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   try {
     const products = await Product.find({ category: req.params.categoryId })
@@ -160,7 +160,7 @@ export const getProductsByCategory = async (
 // Get products by type
 export const getProductsByType = async (
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<void> => {
   try {
     const products = await Product.find({ type: req.params.type })

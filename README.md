@@ -5,22 +5,27 @@ A comprehensive TypeScript-based Express backend server for managing products, d
 ## 🚀 Quick Start
 
 ### 1. Start MongoDB
+
 Make sure MongoDB is running. You can:
+
 - Open **MongoDB Compass** and connect to `mongodb://localhost:27017`
 - Or start MongoDB service: `net start MongoDB`
 - Or run MongoDB manually: `mongod --dbpath "C:\data\db"`
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Seed the Database (100+ products)
+
 ```bash
 npm run seed
 ```
 
 ### 4. Start the Server
+
 ```bash
 npm run dev
 ```
@@ -36,7 +41,7 @@ Server runs on: **http://localhost:5000**
 - 🏷️ **Categories**: Casual, Formal, Party, Gym
 - 👔 **Product Types**: T-shirt, Shorts, Shirts, Hoodie, Jeans
 - 🔖 **10 Brands**: Nike, Adidas, Puma, Zara, H&M, and more
-- 📊 **Special Endpoints**: 
+- 📊 **Special Endpoints**:
   - `/api/products/new-arrivals` - 10 most recent products
   - `/api/products/top-selling` - 10 most purchased products
 
@@ -46,26 +51,27 @@ Server runs on: **http://localhost:5000**
 
 ### Products
 
-| Endpoint | Description |
-|----------|-------------|
-| `GET /api/products` | Get all products (with filters) |
-| `GET /api/products/new-arrivals` | 10 most recent products |
-| `GET /api/products/top-selling` | 10 most purchased products |
-| `GET /api/products/:id` | Get product by ID (with reviews) |
-| `GET /api/products/category/:categoryId` | Products by category |
-| `GET /api/products/type/:type` | Products by type |
+| Endpoint                                 | Description                      |
+| ---------------------------------------- | -------------------------------- |
+| `GET /api/products`                      | Get all products (with filters)  |
+| `GET /api/products/new-arrivals`         | 10 most recent products          |
+| `GET /api/products/top-selling`          | 10 most purchased products       |
+| `GET /api/products/:id`                  | Get product by ID (with reviews) |
+| `GET /api/products/category/:categoryId` | Products by category             |
+| `GET /api/products/type/:type`           | Products by type                 |
 
 ### Query Parameters
+
 ```
 ?type=T-shirt&minRating=4&maxPrice=100&category=...&brand=...
 ```
 
 ### Categories & Brands
 
-| Endpoint | Description |
-|----------|-------------|
+| Endpoint              | Description        |
+| --------------------- | ------------------ |
 | `GET /api/categories` | Get all categories |
-| `GET /api/brands` | Get all brands |
+| `GET /api/brands`     | Get all brands     |
 
 ---
 
@@ -98,14 +104,14 @@ Server runs on: **http://localhost:5000**
 ```javascript
 // Get new arrivals
 const fetchNewArrivals = async () => {
-  const res = await fetch('http://localhost:5000/api/products/new-arrivals');
+  const res = await fetch("http://localhost:5000/api/products/new-arrivals");
   const data = await res.json();
   return data.data; // Array of 10 products
 };
 
 // Get top selling
 const fetchTopSelling = async () => {
-  const res = await fetch('http://localhost:5000/api/products/top-selling');
+  const res = await fetch("http://localhost:5000/api/products/top-selling");
   const data = await res.json();
   return data.data; // Array of 10 products
 };
@@ -181,6 +187,7 @@ If you see `ECONNREFUSED` error:
 ### Port Already in Use
 
 Change port in `.env`:
+
 ```
 PORT=3000
 ```
